@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\InterPlayersTest.API\InterPlayersTest.API.csproj" />
     <ProjectReference Include="..\InterPlayersTest.Infra\InterPlayersTest.Infra.csproj" />
   </ItemGroup>
 
