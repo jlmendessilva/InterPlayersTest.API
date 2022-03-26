@@ -6,14 +6,24 @@ using System.Threading.Tasks;
 
 namespace InterPlayersTest.Service.Services
 {
-    class UserService : IUserService
+    public class UserService : IUserService
     {
-        public User Register(User u)
+        public async Task<List<string>> Register(User u)
         {
             var valida = new UserValidation();
-            var result_valida = valida.Validate(u).Errors;
+            var resultValidation = valida.Validate(u).Errors;
+            var listResult = new List<string>();
 
-            return u;
+            foreach (var item in resultValidation)
+                listResult.Add(item.ErrorMessage);
+
+            if (listResult.Count > 0)
+                return listResult;
+
+            listResult.Add("Acesso liberado!!");
+
+            return listResult;
+
         }
     }
 }

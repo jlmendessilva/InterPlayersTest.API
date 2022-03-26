@@ -15,7 +15,8 @@ namespace InterPlayersTest.API.Validation
                 .Must(VerifyLowerCase).WithMessage("Sua senha tem que ter pelo menos 1 (um) caractere minúsculo")
                 .Must(VerifyUpperCase).WithMessage("Senha deve ter pelo menos 1 (um) caracter maiúsculo")
                 .Must(VerifyNonAlphanumeric).WithMessage("Senha tem que ter pelo menos 1 (um) caracter especial Ex.: (!@#$%^&*()-+)")
-                .Must(VerifyDuplicate).WithMessage("Senha com caracter repetido");
+                .Must(VerifyDuplicate).WithMessage("Senha não pode ter caracter repetido")
+                .NotEmpty().WithMessage("Sua senha não pode ser vazia");
 
         }
 
@@ -23,9 +24,7 @@ namespace InterPlayersTest.API.Validation
         private bool VerifyDigit(string p)
         {
             return (p.Any(x => char.IsDigit(x)));
-            //return true;
 
-            //return false;
         }
 
         private bool VerifyLowerCase(string p)
@@ -49,7 +48,26 @@ namespace InterPlayersTest.API.Validation
 
         private bool VerifyDuplicate(string p)
         {
-            return (Regex.IsMatch(p, @"(\w)*.*\1"));
+            bool duplicatecharacter = false;
+
+            if (p != string.Empty)
+            {
+                for (int currentletterindex = 0; currentletterindex < p.Length; currentletterindex++)
+                {
+                    if (currentletterindex < p.Length - 1)
+                    {
+                        var currentletter = p.Substring(currentletterindex, 1);
+
+                        if (p.IndexOf(currentletter, currentletterindex + 1) > -1)
+                        {
+                            duplicatecharacter = true;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            return !duplicatecharacter;
         }
     }
 }
