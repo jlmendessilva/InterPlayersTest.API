@@ -1,11 +1,12 @@
 ﻿
-using InterPlayersTest.Infra.Entitties;
+using System.Collections.Generic;
 using System.Threading.Tasks;
+using InterPlayersTest.Infra.Entitties;
 
 namespace InterPlayersTest.Service.Interfaces
 {
     public interface IUserService
     {
-        Task<User> Register(User u);
+        Task<List<string>> Register(User u);
     }
 }
