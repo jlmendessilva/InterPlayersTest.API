@@ -2,6 +2,7 @@
 using InterPlayersTest.Infra.Entitties;
 using InterPlayersTest.Service.Interfaces;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 
 namespace InterPlayersTest.Service.Services
@@ -10,17 +11,16 @@ namespace InterPlayersTest.Service.Services
     {
         public async Task<List<string>> Register(User u)
         {
-            var valida = new UserValidation();
-            var resultValidation = valida.Validate(u).Errors;
+            var valid = new UserValidation().Validate(u);
+            
+            if(!valid.IsValid)
+            {
+                List<string> erros = valid.Errors.Select(e => e.ErrorMessage).ToList();
+                return erros;
+            }
+
             var listResult = new List<string>();
-
-            foreach (var item in resultValidation)
-                listResult.Add(item.ErrorMessage);
-
-            if (listResult.Count > 0)
-                return listResult;
-
-            listResult.Add("Acesso liberado!!");
+            listResult.Add("Cadastrado com sucesso! Usuário atende os critérios de senha.");
 
             return listResult;
 

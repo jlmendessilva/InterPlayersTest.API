@@ -1,6 +1,5 @@
 ﻿using InterPlayersTest.Infra.Entitties;
 using InterPlayersTest.Service.Interfaces;
-using InterPlayersTest.Service.Services;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 

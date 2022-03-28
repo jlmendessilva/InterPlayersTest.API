@@ -1,5 +1,6 @@
 ﻿using FluentValidation;
 using InterPlayersTest.Infra.Entitties;
+using InterPlayersTest.Infra.Validation;
 using System.Linq;
 using System.Text.RegularExpressions;
 
@@ -9,14 +10,14 @@ namespace InterPlayersTest.API.Validation
     {
         public UserValidation()
         {
-            RuleFor(u => u.Password).NotNull().WithMessage("Sua senha não pode ser nula")
-                .MinimumLength(9).WithMessage("Sua senha tem que ter no minimo 9 (nove) caracateres)")
-                .Must(VerifyDigit).WithMessage("Sua senha tem que ter pelo menos 1 (um) numero")
-                .Must(VerifyLowerCase).WithMessage("Sua senha tem que ter pelo menos 1 (um) caractere minúsculo")
-                .Must(VerifyUpperCase).WithMessage("Senha deve ter pelo menos 1 (um) caracter maiúsculo")
-                .Must(VerifyNonAlphanumeric).WithMessage("Senha tem que ter pelo menos 1 (um) caracter especial Ex.: (!@#$%^&*()-+)")
-                .Must(VerifyDuplicate).WithMessage("Senha não pode ter caracter repetido")
-                .NotEmpty().WithMessage("Sua senha não pode ser vazia");
+            RuleFor(u => u.Password).NotNull().WithMessage(ErrorMessages.passwordNull)
+                .MinimumLength(9).WithMessage(ErrorMessages.passwordMincharacters)
+                .Must(VerifyDigit).WithMessage(ErrorMessages.passwordMinNumber)
+                .Must(VerifyLowerCase).WithMessage(ErrorMessages.passwordLowerCase)
+                .Must(VerifyUpperCase).WithMessage(ErrorMessages.passwordUpperCase)
+                .Must(VerifyNonAlphanumeric).WithMessage(ErrorMessages.passwordCharactersSpecial)
+                .Must(VerifyDuplicate).WithMessage(ErrorMessages.passwordCharactersDuplicate)
+                .NotEmpty().WithMessage(ErrorMessages.passwordNull);
 
         }
 
