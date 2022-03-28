@@ -17,7 +17,7 @@ namespace InterPlayersTest.API.Validation
                 .Must(VerifyUpperCase).WithMessage(ErrorMessages.passwordUpperCase)
                 .Must(VerifyNonAlphanumeric).WithMessage(ErrorMessages.passwordCharactersSpecial)
                 .Must(VerifyDuplicate).WithMessage(ErrorMessages.passwordCharactersDuplicate)
-                .NotEmpty().WithMessage(ErrorMessages.passwordNull);
+                .NotEmpty().WithMessage(ErrorMessages.passwordEmpty);
 
         }
 
