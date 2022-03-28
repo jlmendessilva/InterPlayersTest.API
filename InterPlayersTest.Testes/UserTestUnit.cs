@@ -1,23 +1,22 @@
-﻿using FluentAssertions;
-using InterPlayersTest.API.Validation;
+﻿using InterPlayersTest.API.Validation;
 using InterPlayersTest.Infra.Entitties;
-using System;
 using Xunit;
-using System.Linq;
-using InterPlayersTest.Infra.Validation;
 
 namespace InterPlayersTest.Testes
 {
-    
+
     public class UserUnitTests
     {
         [Theory(DisplayName ="Teste de validação de senha")]
-        [InlineData("null", "null")]
-        [InlineData("", "")]
+
+        [InlineData("", "")] 
         [InlineData("Joao", "123")]
-        [InlineData("Joao", "123456")]
-        [InlineData("Joao", "@M15TReuvxz")]
-        public void validatePassMinCharacteres(string name, string password)
+        [InlineData("Joao", "1234567890")]
+        [InlineData("Joao", "123456789A")]
+        [InlineData("Joao", "123456789Aa")]
+        [InlineData("Joao", "123456789Aa$")]
+
+        public void Validador(string name, string password)
         {
             var user = new User(name, password);
 
