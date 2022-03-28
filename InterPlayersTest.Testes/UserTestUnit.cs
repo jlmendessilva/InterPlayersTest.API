@@ -7,9 +7,9 @@ namespace InterPlayersTest.Testes
 
     public class UserUnitTests
     {
-        [Theory(DisplayName ="Teste de validação geral de senha")]
+        [Theory(DisplayName = "Teste de validação geral de senha")]
 
-        [InlineData("", "")] 
+        [InlineData("", "")]
         [InlineData("Joao", "123")]
         [InlineData("Joao", "1234567890")]
         [InlineData("Joao", "123456789A")]
@@ -24,7 +24,7 @@ namespace InterPlayersTest.Testes
             Assert.True(result.IsValid);
 
         }
-        /*
+
         [Theory(DisplayName = "Teste de validação senha vazia")]
 
         [InlineData("")]
@@ -32,7 +32,7 @@ namespace InterPlayersTest.Testes
 
         public void valPassEmpty(string password)
         {
-            var user = new User(password);
+            var user = new User("Test", password);
             var result = new UserValidation().Validate(user);
 
             Assert.True(result.IsValid, "NO OK");
@@ -46,7 +46,7 @@ namespace InterPlayersTest.Testes
 
         public void valMinCharacters(string password)
         {
-            var user = new User(password);
+            var user = new User("Test", password);
             var result = new UserValidation().Validate(user);
 
             Assert.True(result.IsValid, "NO OK");
@@ -60,7 +60,7 @@ namespace InterPlayersTest.Testes
 
         public void valMinNumber(string password)
         {
-            var user = new User(password);
+            var user = new User("Test", password);
             var result = new UserValidation().Validate(user);
 
             Assert.True(result.IsValid, "NO OK");
@@ -74,7 +74,7 @@ namespace InterPlayersTest.Testes
 
         public void valLowerCase(string password)
         {
-            var user = new User(password);
+            var user = new User("Test", password);
             var result = new UserValidation().Validate(user);
 
             Assert.True(result.IsValid, "NO OK");
@@ -88,7 +88,7 @@ namespace InterPlayersTest.Testes
 
         public void valUpperCase(string password)
         {
-            var user = new User(password);
+            var user = new User("Test", password);
             var result = new UserValidation().Validate(user);
 
             Assert.True(result.IsValid, "NO OK");
@@ -102,7 +102,7 @@ namespace InterPlayersTest.Testes
 
         public void valCharactersSpecial(string password)
         {
-            var user = new User(password);
+            var user = new User("Test", password);
             var result = new UserValidation().Validate(user);
 
             Assert.True(result.IsValid, "NO OK");
@@ -116,11 +116,11 @@ namespace InterPlayersTest.Testes
 
         public void valCharactersDuplicate(string password)
         {
-            var user = new User(password);
+            var user = new User("Test", password);
             var result = new UserValidation().Validate(user);
 
             Assert.True(result.IsValid, "NO OK");
 
-        }*/
+        }
     }
 }
