@@ -24,7 +24,7 @@ namespace InterPlayersTest.Testes
             Assert.True(result.IsValid);
 
         }
-
+        /*
         [Theory(DisplayName = "Teste de validação senha vazia")]
 
         [InlineData("")]
@@ -121,6 +121,6 @@ namespace InterPlayersTest.Testes
 
             Assert.True(result.IsValid, "NO OK");
 
-        }
+        }*/
     }
 }
