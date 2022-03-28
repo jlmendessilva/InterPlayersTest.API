@@ -17,8 +17,62 @@
 <li style="font-weight: 400;" aria-level="1"><span style="font-weight: 400;">Execute o programa apertando F5.</span></li>
 </ol>
 <h4><span style="font-weight: 400;">Par&acirc;metros para testes que satisfazem todos os requisitos:&nbsp;</span></h4>
-<p><span style="font-weight: 400;">{</span></p>
-<p><span style="font-weight: 400;">"Name": "Ana",</span></p>
-<p><span style="font-weight: 400;">"Password": "@M15TReuvxz"</span></p>
-<p><span style="font-weight: 400;">}</span></p>
+<p><strong>Teste: Vazio&nbsp;</strong></p>
+<p><code><span style="font-weight: 400;">{</span></code></p>
+<p><code><span style="font-weight: 400;">"Name": "",</span></code></p>
+<p><code><span style="font-weight: 400;">"Password": ""</span></code></p>
+<p><code><span style="font-weight: 400;">}</span></code></p>
+<p><strong>Resultado:</strong></p>
+<p><code><span style="font-weight: 400;">[</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Sua senha tem que ter no m&iacute;nimo 9 (nove) caracteres)",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Sua senha tem que ter pelo menos 1 (um) n&uacute;mero",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Sua senha tem que ter pelo menos 1 (um) caractere min&uacute;sculo",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Senha deve ter pelo menos 1 (um) caractere mai&uacute;sculo",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Senha tem que ter pelo menos 1 (um) caractere especial Ex.: (!@#$%^&amp;*()-+)",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Sua senha n&atilde;o pode ser nula"</span></code></p>
+<p><code><span style="font-weight: 400;">]</span></code></p>
+<hr />
+<p><strong>Teste: </strong><span style="font-weight: 400;">Sua senha tem que ter no m&iacute;nimo 9 (nove) caracteres)</span></p>
+<p><code><span style="font-weight: 400;">{</span></code></p>
+<p><code><span style="font-weight: 400;">"Name": "Maria",</span></code></p>
+<p><code><span style="font-weight: 400;">"Password": "123456790"</span></code></p>
+<p><code><span style="font-weight: 400;">}</span></code></p>
+<p><strong>Resultado:</strong></p>
+<p><code><span style="font-weight: 400;">[</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Sua senha tem que ter pelo menos 1 (um) caractere min&uacute;sculo",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Senha deve ter pelo menos 1 (um) caractere mai&uacute;sculo",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Senha tem que ter pelo menos 1 (um) caractere especial Ex.: (!@#$%^&amp;*()-+)",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;</span></code></p>
+<p><code><span style="font-weight: 400;">]</span></code></p>
+<hr />
+<p><strong>Teste: </strong><span style="font-weight: 400;">Sua senha tem que ter pelo menos 1 (um) caractere min&uacute;sculo</span></p>
+<p><code><span style="font-weight: 400;">{</span></code></p>
+<p><code><span style="font-weight: 400;">"Name": "Maria",</span></code></p>
+<p><code><span style="font-weight: 400;">"Password": "123456790A"</span></code></p>
+<p><code><span style="font-weight: 400;">}</span></code></p>
+<p><strong>Resultado:</strong></p>
+<p><code><span style="font-weight: 400;">[</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Senha deve ter pelo menos 1 (um) caractere mai&uacute;sculo",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Senha tem que ter pelo menos 1 (um) caractere especial Ex.: (!@#$%^&amp;*()-+)",</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;</span><span style="font-weight: 400;">]</span></code></p>
+<hr />
+<p><strong>Teste: </strong><span style="font-weight: 400;">Senha deve ter pelo menos 1 (um) caractere mai&uacute;sculo</span></p>
+<p><code><span style="font-weight: 400;">{</span></code></p>
+<p><code><span style="font-weight: 400;">"Name": "Maria",</span></code></p>
+<p><code><span style="font-weight: 400;">"Password": "123456790Aa"</span></code></p>
+<p><code><span style="font-weight: 400;">}</span></code></p>
+<p><strong>Resultado:</strong></p>
+<p><code><span style="font-weight: 400;">[</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;"Senha tem que ter pelo menos 1 (um) caractere especial Ex.: (!@#$%^&amp;*()-+)"</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;</span><span style="font-weight: 400;">]</span></code></p>
+<hr />
+<p><strong>Teste: </strong><span style="font-weight: 400;">Senha tem que ter pelo menos 1 (um) caractere especial Ex.: (!@#$%^&amp;*()-+)</span></p>
+<p><code><span style="font-weight: 400;">{</span></code></p>
+<p><code><span style="font-weight: 400;">"Name": "Maria",</span></code></p>
+<p><code><span style="font-weight: 400;">"Password": "123456790Aa$"</span></code></p>
+<p><code><span style="font-weight: 400;">}</span></code></p>
+<p><strong>Resultado:</strong></p>
+<p><code><span style="font-weight: 400;">[</span></code></p>
+<p><code><span style="font-weight: 400;">&nbsp;&nbsp;&ldquo;Cadastrado com sucesso! Usu&aacute;rio atende os crit&eacute;rios de senha&rdquo;</span></code></p>
+<p><code><span style="font-weight: 400;">]</span></code></p>
 <p>&nbsp;</p>
