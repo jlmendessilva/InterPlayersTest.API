@@ -12,14 +12,14 @@ namespace InterPlayersTest.Service.Services
         public async Task<List<string>> Register(User u)
         {
             var valid = new UserValidation().Validate(u);
-            
-            if(!valid.IsValid)
+            var listResult = new List<string>();
+
+            if (!valid.IsValid)
             {
-                List<string> erros = valid.Errors.Select(e => e.ErrorMessage).ToList();
-                return erros;
+                listResult = valid.Errors.Select(e => e.ErrorMessage).ToList();
+                return listResult;
             }
 
-            var listResult = new List<string>();
             listResult.Add("Cadastrado com sucesso! Usuário atende os critérios de senha.");
 
             return listResult;
